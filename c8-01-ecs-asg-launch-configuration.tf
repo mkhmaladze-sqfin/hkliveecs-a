@@ -26,4 +26,8 @@ resource "aws_launch_configuration" "as_conf" {
         volume_size           = 50
         volume_type           = "gp2"
     }
+	# Not to impact user_data in plan and apply we use ignore_changes
+lifecycle {
+    ignore_changes = [user_data]
+  }
 }
